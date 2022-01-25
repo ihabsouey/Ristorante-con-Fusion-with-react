@@ -1,31 +1,27 @@
- 
-import React from 'react';
-import  {Navbar, NavbarBrand} from 'reactstrap';
-import Menu from './components/MenuComponent';
-import './App.css';
-import {DISHES} from './shared/dishes'
-import { Component } from 'react/cjs/react.production.min';
+import './App.css'
+import { BrowserRouter } from 'react-router-dom';
+import React, { Component } from 'react';
+
+import Main from './components/MainComponent';
+
+import { Provider } from 'react-redux';
+import { ConfigureStore } from './redux/configureStore';
+
+const store = ConfigureStore();
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      dishes : DISHES
-    };
-  }
-  render(){
 
- 
-  return (
-    <div>
-        <Navbar dark color='primary'>
-          <div className='container'>
-            <NavbarBrand href='/'>Ristorante Con Fusion</NavbarBrand>
+  render() {
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Main />
           </div>
-        </Navbar>
-        <Menu dishes={this.state.dishes} />
-    </div>
-  );
-} }
+        </BrowserRouter>
+      </Provider>
+    );
+  }
+}
 
 export default App;
