@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import { Card } from 'react-bootstrap';
-import {Link} from 'react-router-dom'
-import {Breadcrumb , BreadcrumbItem} from 'reactstrap'
+import { Link } from 'react-router-dom'
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap'
 import {
     Modal, ModalBody, Button,
     Form, FormGroup
 } from 'react-bootstrap'
 import { Control, LocalForm, Errors } from 'react-redux-form';
- 
-const maxLength = (len) => (val) => !(val) || (val.length <= len) ;
-const minLength = (len) => (val) => val && (val.length >= len ) ;
- 
 
-class CommentForm extends Component{
+const maxLength = (len) => (val) => !(val) || (val.length <= len);
+const minLength = (len) => (val) => val && (val.length >= len);
+
+
+class CommentForm extends Component {
 
     constructor(props) {
         super(props);
@@ -20,10 +20,13 @@ class CommentForm extends Component{
         this.state = {
             isModal2Open: false
         };
-
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.toggleModal = this.toggleModal.bind(this);
     }
-
+    handleSubmit(values) {
+       
+        this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
+    }
     toggleModal() {
 
 
@@ -46,43 +49,46 @@ class CommentForm extends Component{
 
                     <ModalBody>
 
-                        <LocalForm >
+                        <LocalForm onSubmit={(values) => this.handleSubmit(values)} >
                             <FormGroup >
                                 <Form.Label>Rating </Form.Label>
-                                <Form.Select >
-
+                                <Control.select model=".rating"
+                                    className='form-control'>
+                                    <option value="">Select</option>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
-                                </Form.Select>
+                                </Control.select>
 
                             </FormGroup>
-                            <FormGroup  className="mb-2 mt-2">
+                            <FormGroup className="mb-2 mt-2">
                                 <Form.Label>Your name </Form.Label>
-                                <Control.text model=".name" id="name" name="name"
-                                className='form-control'
-                                       validators={{
-                                         minLength: minLength(3), maxLength: maxLength(15)
+                                <Control.text model=".author" id="name" name="author"
+                                    className='form-control'
+                                    validators={{
+                                        minLength: minLength(3), maxLength: maxLength(15)
                                     }}
                                 />
-                                 <Errors
-                                        className="text-danger"
-                                        model=".name"
-                                        show="touched"
-                                        messages={{
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
-                                        }}
-                                     />
+                                <Errors
+                                    className="text-danger"
+                                    model=".author"
+                                    show="touched"
+                                    messages={{
+                                        minLength: 'Must be greater than 2 characters',
+                                        maxLength: 'Must be 15 characters or less'
+                                    }}
+                                />
                             </FormGroup>
 
                             <Form.Group className="mb-4">
-                            <Form.Label>Comment </Form.Label> 
-                                <Form.Control as="textarea" rows={6} /> 
+                                <Form.Label>Comment </Form.Label>
+                                <Control.textarea model=".comment" id="comment" name="comment"
+                                    rows="6"
+                                    className="form-control" />
                             </Form.Group>
-                            <Button onClick={this.toggleModal} type="submit" value="submit" color="primary">Login</Button>
+                            <Button type="submit" color="primary">Submit</Button>
                         </LocalForm>
 
 
@@ -97,80 +103,83 @@ class CommentForm extends Component{
 function RenderDish({ dish }) {
     if (dish) {
         return (
-           
-                    <Card key={dish.id} className="">
-                        <Card.Img width="100%" src={dish.image} alt={dish.name} />
-                        <Card.Body>
-                            <Card.Title>{dish.name}</Card.Title>
-                            <Card.Text>{dish.description} </Card.Text>
-                        </Card.Body>
-                    </Card>
-             
+
+            <Card key={dish.id} className="">
+                <Card.Img width="100%" src={dish.image} alt={dish.name} />
+                <Card.Body>
+                    <Card.Title>{dish.name}</Card.Title>
+                    <Card.Text>{dish.description} </Card.Text>
+                </Card.Body>
+            </Card>
+
         )
     }
-    else { return (
+    else {
+        return (
             <div>
-                
+
             </div>)
     }
 }
 
-function RenderComment({comm}) {
-    
+function RenderComment({ comm, addComment, dishId }) {
+
 
     if (comm) {
-        return(
-           
-                <div  >
-                  <h3>Comments</h3>
-                   {
-                       comm.map((co)=>[
-                           <div key={co.id}>
-                                <p>{co.comment}</p>
-                                 <p>--{co.author} , {new Date(co.date).toDateString()}</p>
-                            </div>
-                       ])
-                   }
-                   <CommentForm />
-                </div>
-          
+        return (
+
+            <div  >
+                <h3>Comments</h3>
+                {
+                    comm.map((co) => [
+                        <div key={co.id}>
+                            <p>{co.comment}</p>
+                            <p>--{co.author} , {new Date(co.date).toDateString()}</p>
+                        </div>
+                    ])
+                }
+                <CommentForm dishId={dishId} addComment={addComment} />
+            </div>
+
         )
     }
-    else{
+    else {
         return (<div> </div>)
     }
 }
 
 
 const DishDetail = (props) => {
-    
-    if(props.dish != null)
-    return (
-        <div className="container">
-                 <Breadcrumb>
-                <BreadcrumbItem><Link to='/menu' >Menu </Link></BreadcrumbItem>
-                <BreadcrumbItem active>{props.dish.name} </BreadcrumbItem>
+
+    if (props.dish != null)
+        return (
+            <div className="container">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to='/menu' >Menu </Link></BreadcrumbItem>
+                    <BreadcrumbItem active>{props.dish.name} </BreadcrumbItem>
                 </Breadcrumb>
                 <div className='col-12'>
-                <h3>{props.dish.name}</h3>
-                <hr />
+                    <h3>{props.dish.name}</h3>
+                    <hr />
                 </div>
                 <div className="row">
                     <div className='col-12 col-md-5  m-1' >
                         <RenderDish dish={props.dish} />
                     </div>
                     <div className='col-12 col-md-5  m-1' >
-                        <RenderComment comm={props.comments} />
+                        <RenderComment comm={props.comments}
+                            addComment={props.addComment}
+                            dishId={props.dish.id} />
                     </div>
                 </div>
-        </div>
-    
+            </div>
 
 
-    );
-    else return(
-        <div className='m-5 center '> 
-                   <center><h1>Dish Not found</h1> </center> 
+
+        );
+    else return (
+        <div className='m-5 center '>
+            <center><h1>Dish Not found</h1> </center>
         </div>
     )
 }
