@@ -8,6 +8,9 @@ import {
 } from 'react-bootstrap'
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
+import { Loading } from './LoadingComponent'
+import { baseUrl } from '../shared/baseUrl';
+
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 
@@ -24,7 +27,7 @@ class CommentForm extends Component {
         this.toggleModal = this.toggleModal.bind(this);
     }
     handleSubmit(values) {
-       
+
         this.props.addComment(this.props.dishId, values.rating, values.author, values.comment);
     }
     toggleModal() {
@@ -105,7 +108,7 @@ function RenderDish({ dish }) {
         return (
 
             <Card key={dish.id} className="">
-                <Card.Img width="100%" src={dish.image} alt={dish.name} />
+                <Card.Img width="100%" src={baseUrl +  dish.image} alt={dish.name} />
                 <Card.Body>
                     <Card.Title>{dish.name}</Card.Title>
                     <Card.Text>{dish.description} </Card.Text>
@@ -150,8 +153,25 @@ function RenderComment({ comm, addComment, dishId }) {
 
 
 const DishDetail = (props) => {
-
-    if (props.dish != null)
+    if (props.isLoading) {
+        return (
+            <div className='container'>
+                <div className='row'>
+                    <Loading />
+                </div>
+            </div>
+        )
+    }
+    else if (props.errMess) {
+        return (
+            <div className='container'>
+                <div className='row'>
+                    <h4>{props.errMess} </h4>
+                </div>
+            </div>
+        )
+    }
+    else if (props.dish != null)
         return (
             <div className="container">
                 <Breadcrumb>
