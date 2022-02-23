@@ -1,34 +1,44 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
+import { Fade, Stagger } from 'react-animation-components';
 
 function RenderLeader({ leader }) {
-  
+
     return (
         <div>
-            {
-                leader.map((lead) => [
-                     <div key={lead.id} className="col-12 mt-5">
-                     <Media  className="row">
-                        <Media left middle className="col-2">
-                            <Media object height="130p" src={lead.image} alt={lead.name} />
-                        </Media>
-                        <Media body className="col-10">
-                            <Media heading>{lead.name}</Media>
-                            <p>{lead.designation}</p>
-                            <p>{lead.description}</p>
-                        </Media>
-                     </Media>
-                   </div>
+
+
+            <Stagger in>
+
+                {leader.leaders.map((lead) => [
+                    <Fade in>
+                        <div key={lead.id} className="col-12 mt-5">
+                            <Media className="row">
+                                <Media left middle className="col-2">
+                                    <Media object height="130p" src={baseUrl + lead.image} alt={lead.name} />
+                                </Media>
+                                <Media body className="col-10">
+                                    <Media heading>{lead.name}</Media>
+                                    <p>{lead.designation}</p>
+                                    <p>{lead.description}</p>
+                                </Media>
+                            </Media>
+
+                        </div> </Fade>
                 ])
-            }</div>
+                }</Stagger >
+
+        </div>
+
     )
 
 
 }
 function About(props) {
     const { leaders } = props;
-  
+
     return (
         <div className="container">
             <div className="row">

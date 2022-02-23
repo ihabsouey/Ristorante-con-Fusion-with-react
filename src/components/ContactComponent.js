@@ -5,7 +5,7 @@ import {
 } from 'reactstrap';
 import { Control, Form, Errors  } from 'react-redux-form';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom' 
 
 
 const required = (val) => val && val.length;
@@ -24,8 +24,8 @@ class Contact extends Component {
     }
 
     handleSubmit(values) {
-        console.log('Current State is: ' + JSON.stringify(values));
-        // alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedBack(values);
+        alert('Thank you for your feedback \n' + JSON.stringify(values))
         this.props.resetFeedbackForm();
 
     }
@@ -83,6 +83,7 @@ class Contact extends Component {
                             <Row className="form-group mt-2">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
+                                  
                                     <Control.text model=".firstname" id="firstname" name="firstname"
                                         placeholder="First Name"
                                         className='form-control'

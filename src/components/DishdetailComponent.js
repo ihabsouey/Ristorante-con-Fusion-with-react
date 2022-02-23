@@ -107,14 +107,19 @@ class CommentForm extends Component {
 function RenderDish({ dish }) {
     if (dish) {
         return (
-
-            <Card key={dish.id} className="">
-                <Card.Img width="100%" src={baseUrl + dish.image} alt={dish.name} />
-                <Card.Body>
-                    <Card.Title>{dish.name}</Card.Title>
-                    <Card.Text>{dish.description} </Card.Text>
-                </Card.Body>
-            </Card>
+            <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
+                <Card key={dish.id} className="">
+                    <Card.Img width="100%" src={baseUrl + dish.image} alt={dish.name} />
+                    <Card.Body>
+                        <Card.Title>{dish.name}</Card.Title>
+                        <Card.Text>{dish.description} </Card.Text>
+                    </Card.Body>
+                </Card>
+            </FadeTransform>
 
         )
     }
@@ -138,10 +143,10 @@ function RenderComment({ comm, postComment, dishId }) {
                     {
                         comm.map((co) => [
                             <Fade in>
-                            <div key={co.id}>
-                                <p>{co.comment}</p>
-                                <p>--{co.author} , {new Date(co.date).toDateString()}</p>
-                            </div>
+                                <div key={co.id}>
+                                    <p>{co.comment}</p>
+                                    <p>--{co.author} , {new Date(co.date).toDateString()}</p>
+                                </div>
                             </Fade>
 
                         ])

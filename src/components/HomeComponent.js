@@ -22,15 +22,16 @@ function RenderCard({ item, isLoading, errMess }) {
                 transformProps={{
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
-            <Card>
-                <Card.Img height="330px" src={baseUrl+  item.image} alt={item.name} />
-                <Card.Body >
-                    <Card.Title> {item.name}</Card.Title>
-                </Card.Body>
-                {item.designation ? <Card.Subtitle className="m-2">{item.designation}</Card.Subtitle> : null}
-                <Card.Text className="m-2 " > {item.description}</Card.Text>
-            </Card>
-                        </FadeTransform >
+                <Card>
+
+                    <Card.Img height="330px" src={baseUrl + item.image} alt={item.name} />
+                    <Card.Body >
+                        <Card.Title> {item.name}</Card.Title>
+                    </Card.Body>
+                    {item.designation ? <Card.Subtitle className="m-2">{item.designation}</Card.Subtitle> : null}
+                    <Card.Text className="m-2 " > {item.description}</Card.Text>
+                </Card>
+            </FadeTransform >
 
 
         );
@@ -51,7 +52,10 @@ function Home(props) {
                         errMess={props.promosErrMess} />
                 </div>
                 <div className="col-12 col-md m-1"   >
-                    <RenderCard item={props.leader} />
+                     
+                    <RenderCard item={props.leader}
+                        isLoading={props.leaderLoading}
+                        errMess={props.leaderErrMess} />
                 </div>
             </div>
 
