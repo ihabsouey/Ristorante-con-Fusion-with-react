@@ -1,6 +1,5 @@
 import React from "react";
 import { Card } from 'react-bootstrap'
-import { baseUrl } from "../shared/baseUrl";
 import { Loading } from "./LoadingComponent";
 import { FadeTransform } from 'react-animation-components';
 
@@ -22,9 +21,9 @@ function RenderCard({ item, isLoading, errMess }) {
                 transformProps={{
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
-                <Card>
+                <Card >
 
-                    <Card.Img height="330px" src={baseUrl + item.image} alt={item.name} />
+                    <Card.Img width="100%" src={'../assets/' + item.image} alt={item.name} />
                     <Card.Body >
                         <Card.Title> {item.name}</Card.Title>
                     </Card.Body>

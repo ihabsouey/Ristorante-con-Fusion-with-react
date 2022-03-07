@@ -9,7 +9,6 @@ import {
 import { Control, LocalForm, Errors } from 'react-redux-form';
 
 import { Loading } from './LoadingComponent'
-import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -28,8 +27,9 @@ class CommentForm extends Component {
         this.toggleModal = this.toggleModal.bind(this);
     }
     handleSubmit(values) {
+        alert('Thankyou ' + JSON.stringify(values.author)+ ' Your comment will be submited  ' )
 
-        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
+       // this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
     toggleModal() {
 
@@ -113,7 +113,7 @@ function RenderDish({ dish }) {
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
                 <Card key={dish.id} className="">
-                    <Card.Img width="100%" src={baseUrl + dish.image} alt={dish.name} />
+                    <Card.Img width="100%" src={'../assets/' + dish.image} alt={dish.name} />
                     <Card.Body>
                         <Card.Title>{dish.name}</Card.Title>
                         <Card.Text>{dish.description} </Card.Text>
