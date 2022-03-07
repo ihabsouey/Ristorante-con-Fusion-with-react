@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/Ristorante-con-Fusion-with-react/static/css/main.9d8e3e2e.chunk.css",
+    "main.js": "/Ristorante-con-Fusion-with-react/static/js/main.d9949c86.chunk.js",
+    "main.js.map": "/Ristorante-con-Fusion-with-react/static/js/main.d9949c86.chunk.js.map",
+    "runtime-main.js": "/Ristorante-con-Fusion-with-react/static/js/runtime-main.a459eefc.js",
+    "runtime-main.js.map": "/Ristorante-con-Fusion-with-react/static/js/runtime-main.a459eefc.js.map",
+    "static/css/2.fd4a1ff1.chunk.css": "/Ristorante-con-Fusion-with-react/static/css/2.fd4a1ff1.chunk.css",
+    "static/js/2.5c0c61f1.chunk.js": "/Ristorante-con-Fusion-with-react/static/js/2.5c0c61f1.chunk.js",
+    "static/js/2.5c0c61f1.chunk.js.map": "/Ristorante-con-Fusion-with-react/static/js/2.5c0c61f1.chunk.js.map",
+    "static/js/3.d29ed866.chunk.js": "/Ristorante-con-Fusion-with-react/static/js/3.d29ed866.chunk.js",
+    "static/js/3.d29ed866.chunk.js.map": "/Ristorante-con-Fusion-with-react/static/js/3.d29ed866.chunk.js.map",
+    "index.html": "/Ristorante-con-Fusion-with-react/index.html",
+    "static/css/2.fd4a1ff1.chunk.css.map": "/Ristorante-con-Fusion-with-react/static/css/2.fd4a1ff1.chunk.css.map",
+    "static/css/main.9d8e3e2e.chunk.css.map": "/Ristorante-con-Fusion-with-react/static/css/main.9d8e3e2e.chunk.css.map",
+    "static/js/2.5c0c61f1.chunk.js.LICENSE.txt": "/Ristorante-con-Fusion-with-react/static/js/2.5c0c61f1.chunk.js.LICENSE.txt",
+    "static/media/font-awesome.min.css": "/Ristorante-con-Fusion-with-react/static/media/fontawesome-webfont.f691f37e.woff",
+    "static/media/logo.23118273.png": "/Ristorante-con-Fusion-with-react/static/media/logo.23118273.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a459eefc.js",
+    "static/css/2.fd4a1ff1.chunk.css",
+    "static/js/2.5c0c61f1.chunk.js",
+    "static/css/main.9d8e3e2e.chunk.css",
+    "static/js/main.d9949c86.chunk.js"
+  ]
+}
