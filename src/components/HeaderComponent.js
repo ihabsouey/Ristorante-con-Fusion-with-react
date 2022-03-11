@@ -5,7 +5,7 @@ import {
 } from 'react-bootstrap';
 
 import { NavLink } from "react-router-dom";
-import logo from '../assets/images/logo.png'
+import { imgUrl } from "../shared/baseUrl";
 
 class Header extends Component {
     constructor(props) {
@@ -39,7 +39,7 @@ class Header extends Component {
                     <div className="container">
                         <Navbar.Toggle />
                            <NavLink className="nav-link" to="/home">
-                           <Navbar.Brand ><img src={logo} height="30" width="40" alt="logo" /></Navbar.Brand>
+                           <Navbar.Brand ><img src={imgUrl + "/images/logo.png"} height="30" width="40" alt="logo" /></Navbar.Brand>
                    
                                     </NavLink>
                         <Navbar.Collapse className=" " >
