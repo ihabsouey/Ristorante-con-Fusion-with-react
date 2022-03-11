@@ -64,7 +64,7 @@ class Contact extends Component {
                     </div>
                     <div className="col-12 col-sm-6 offset-sm-1">
                         <h5>Map of our Location</h5>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.5237816504946!2d114.21604661451245!3d22.3338431853062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340406b77660041b%3A0x1e1faa9bb38e36f3!2s121%20Clear%20Water%20Bay%20Rd%2C%20Ngau%20Chi%20Wan%2C%20Hong%20Kong!5e0!3m2!1sfr!2stn!4v1646677778066!5m2!1sfr!2stn" height="120%"  allowfullscreen="" loading="lazy"></iframe>
+                        <iframe title='maplocation' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3690.5237816504946!2d114.21604661451245!3d22.3338431853062!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x340406b77660041b%3A0x1e1faa9bb38e36f3!2s121%20Clear%20Water%20Bay%20Rd%2C%20Ngau%20Chi%20Wan%2C%20Hong%20Kong!5e0!3m2!1sfr!2stn!4v1646677778066!5m2!1sfr!2stn" height="120%"  allowFullScreen="" loading="lazy"></iframe>
                     </div>
                     <div className="col-12 col-sm-11 offset-sm-1 mt-4">
                         <div className="btn-group" role="group">

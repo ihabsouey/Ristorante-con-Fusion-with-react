@@ -10,6 +10,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 
 import { Loading } from './LoadingComponent'
 import { FadeTransform, Fade, Stagger } from 'react-animation-components';
+import {imgUrl} from '../shared/baseUrl'
 
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
@@ -113,7 +114,7 @@ function RenderDish({ dish }) {
                     exitTransform: 'scale(0.5) translateY(-50%)'
                 }}>
                 <Card key={dish.id} className="">
-                    <Card.Img width="100%" src={'../assets/' + dish.image} alt={dish.name} />
+                    <Card.Img width="100%" src={imgUrl + dish.image} alt={dish.name} />
                     <Card.Body>
                         <Card.Title>{dish.name}</Card.Title>
                         <Card.Text>{dish.description} </Card.Text>

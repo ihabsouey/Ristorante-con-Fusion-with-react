@@ -82,6 +82,7 @@ class Main extends Component {
         <Header />
         <TransitionGroup>
           <CSSTransition  classNames="page" timeout={300}>
+            
               <Routes location={this.props.dishId}>
                  
               <Route path="/home" element={<HomePage />} />

@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from 'react-bootstrap'
 import { Loading } from "./LoadingComponent";
 import { FadeTransform } from 'react-animation-components';
+import { imgUrl } from "../shared/baseUrl";
 
 function RenderCard({ item, isLoading, errMess }) {
     if (isLoading) {
@@ -23,7 +24,7 @@ function RenderCard({ item, isLoading, errMess }) {
                 }}>
                 <Card >
 
-                    <Card.Img width="100%" src={'../assets/' + item.image} alt={item.name} />
+                    <Card.Img width="100%" src={imgUrl +item.image} alt={item.name} />
                     <Card.Body >
                         <Card.Title> {item.name}</Card.Title>
                     </Card.Body>
