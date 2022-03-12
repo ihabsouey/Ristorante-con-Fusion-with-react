@@ -85,11 +85,11 @@ class Main extends Component {
             
               <Routes location={this.props.dishId}>
                  
-              <Route path="/home" element={<HomePage />} />
-              <Route exact path="/menu" element={<Menu dishes={this.props.dishes} />} />
-              <Route path="/menu/:dishId" element={<DishWithId />} />
-              <Route exact path="/contactus" element={<Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedBack={this.props.postFeedBack} />} />
-              <Route exact path="/aboutus" element={<About leaders={this.props.leaders} />} />
+              <Route path="Ristorante-con-Fusion-with-react/home" element={<HomePage />} />
+              <Route exact path="Ristorante-con-Fusion-with-react/menu" element={<Menu dishes={this.props.dishes} />} />
+              <Route path="Ristorante-con-Fusion-with-react/menu/:dishId" element={<DishWithId />} />
+              <Route exact path="Ristorante-con-Fusion-with-react/contactus" element={<Contact resetFeedbackForm={this.props.resetFeedbackForm} postFeedBack={this.props.postFeedBack} />} />
+              <Route exact path="Ristorante-con-Fusion-with-react/aboutus" element={<About leaders={this.props.leaders} />} />
               <Route path="/*" element={<HomePage />} />
             </Routes>
           </CSSTransition>

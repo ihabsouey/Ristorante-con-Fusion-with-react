@@ -4,7 +4,7 @@ import {
     Form, FormGroup,
 } from 'react-bootstrap';
 
-import { NavLink } from "react-router-dom";
+import { NavLink ,Link} from "react-router-dom";
 import { imgUrl } from "../shared/baseUrl";
 
 class Header extends Component {
@@ -38,34 +38,31 @@ class Header extends Component {
                 <Navbar className="navbar-dark" expand="md">
                     <div className="container">
                         <Navbar.Toggle />
-                           <NavLink className="nav-link" to="/home">
+                           <NavLink className="nav-link" to="Ristorante-con-Fusion-with-react/home/">
                            <Navbar.Brand ><img src={imgUrl + "/images/logo.png"} height="30" width="40" alt="logo" /></Navbar.Brand>
                    
                                     </NavLink>
                         <Navbar.Collapse className=" " >
                             <Nav className="me-auto">
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/home">
+                                    <NavLink className="nav-link" to="Ristorante-con-Fusion-with-react/home/">
                                         <span className="fa fa-home fa-lg"></span> Home
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
+                                    <NavLink className="nav-link" to="Ristorante-con-Fusion-with-react/aboutus/">
                                         <span className="fa fa-info fa-lg"></span> About us
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/menu">
+                                    <NavLink className="nav-link" to="Ristorante-con-Fusion-with-react/menu">
                                         <span className="fa fa-bars fa-lg"></span> Menu
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
+                                    <NavLink className="nav-link" to="Ristorante-con-Fusion-with-react/contactus">
                                         <span className="fa fa-address-card fa-lg ml-5"></span> Contact Us
                                     </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    &nbsp;   &nbsp;   &nbsp;   &nbsp;
                                 </NavItem>
                             </Nav>
                             <Nav>

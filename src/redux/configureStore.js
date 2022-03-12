@@ -4,6 +4,7 @@ import { Comments } from './comments';
 import { Promotions } from './promotions';
 import { Leaders } from './leaders';
 import thunk from 'redux-thunk';
+
 import { createForms } from 'react-redux-form';
 import { InitialFeedback } from './forms';
 
@@ -18,7 +19,7 @@ export const ConfigureStore = () => {
                 feedback: InitialFeedback  
             })
         }),
-        applyMiddleware(thunk)
+        applyMiddleware(thunk )
     );
 
     return store;

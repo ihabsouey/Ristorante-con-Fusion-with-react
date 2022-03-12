@@ -8,7 +8,7 @@ import {imgUrl} from '../shared/baseUrl'
 function RenderMenuItem({ dish }) {
   return (
     <Card id={dish.id}>
-      <Link to={`/menu/${dish.id}`}>
+      <Link to={`/Ristorante-con-Fusion-with-react/menu/${dish.id}`}>
         <Card.Img width="100%" src={imgUrl+ dish.image } alt={dish.name} />
         <Card.ImgOverlay >
           <Card.Title>{dish.name}</Card.Title>
@@ -49,7 +49,7 @@ const Menu = (props) => {
       <div className="container">
         <div className='row'>
           <Breadcrumb>
-            <BreadcrumbItem><Link to='/home' >Home </Link></BreadcrumbItem>
+            <BreadcrumbItem><Link to='/Ristorante-con-Fusion-with-react/home' >Home </Link></BreadcrumbItem>
             <BreadcrumbItem active>Menu </BreadcrumbItem>
           </Breadcrumb>
           <div className='col-12'>
